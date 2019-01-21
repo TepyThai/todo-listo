@@ -1,12 +1,16 @@
 import React from 'react'
-
+import { connect } from 'react-redux'
+import { onToggleTodo } from '../state/actions'
 class Listo extends React.Component {
   render() {
-    const { done, todoText, onToggle } = this.props
+    const { done, todoText, onToggleTodo, todoId } = this.props
     return (
       <div className="container mx-auto py-3 ">
         <div className="flex no-wrap items-center">
-          <button className="mr-4 focus:outline-none" onClick={onToggle}>
+          <button
+            className="mr-4 focus:outline-none"
+            onClick={() => onToggleTodo(todoId)}
+          >
             <svg
               width="30"
               height="30"
@@ -84,4 +88,7 @@ class Listo extends React.Component {
     )
   }
 }
-export default Listo
+export default connect(
+  null,
+  { onToggleTodo }
+)(Listo)

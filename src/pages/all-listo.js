@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import { onToggleTodo } from '../state/actions'
 import Listo from '../components/listo'
 
 class AllListo extends Component {
   renderAllListo = (todos, onToggleTodo) => {
-    if (todos === null) {
+    if (!todos) {
       return <h2>No items</h2>
     }
     return Object.values(todos).map(todo => (
@@ -14,7 +14,6 @@ class AllListo extends Component {
         todoId={todo.id}
         done={todo.isDone}
         todoText={todo.text}
-        onToggle={() => onToggleTodo(todo.id)}
       />
     ))
   }
@@ -31,13 +30,4 @@ class AllListo extends Component {
   }
 }
 
-export default connect(
-  state => ({ todos: state.todoReducer }),
-  dispatch => ({
-    onToggleTodo: id =>
-      dispatch({
-        type: 'TOGGLE_TODO',
-        id: id,
-      }),
-  })
-)(AllListo)
+export default connect(state => ({ todos: state.todos }))(AllListo)
