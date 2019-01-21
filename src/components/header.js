@@ -1,4 +1,3 @@
-import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -10,7 +9,7 @@ const Header = ({ siteTitle }) => (
         <button type="button" className="">
           <img
             src={`https://avatars1.githubusercontent.com/u/6161814?s=460&v=4`}
-            alt="tepythai image"
+            alt="tepythai github profile"
             className="w-8 h-8 rounded-full mb-none hover:border-white border border-transparent"
           />
         </button>

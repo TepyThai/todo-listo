@@ -827,6 +827,7 @@ module.exports = {
     header: '#FF306E',
     'not-done': '#C62D5B',
     done: '#219653',
+    white: colors.white,
   },
 
   /*

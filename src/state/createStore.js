@@ -1,15 +1,44 @@
-import { createStore as reduxCreateStore } from 'redux'
+import { createStore as reduxCreateStore, combineReducers } from 'redux'
+const uuidv4 = require('uuid/v4')
 
-const appReducer = (state, action) => {
+const initialState = {}
+const todoReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'incrementCounter':
-      return { ...state, counter: state.counter + 1 }
-    case 'decrementCounter':
-      return { ...state, counter: state.counter - 1 }
+    case 'ADD_TODO': {
+      const id = uuidv4()
+      return {
+        ...state,
+        [id]: {
+          id: id,
+          text: action.text,
+          isDone: false,
+        },
+      }
+    }
+
+    case 'TOGGLE_TODO': {
+      const toggledId = action.id
+      return {
+        ...state,
+        [toggledId]: {
+          ...state[toggledId],
+          isDone: !state[toggledId].isDone,
+        },
+      }
+    }
+    default:
+      return state
+  }
+}
+const toggleAddTodoReducer = (state = { isAddingNew: false }, action) => {
+  if (action.type === 'TOGGLE_ADD') {
+    return { isAddingNew: !state.isAddingNew }
   }
   return state
 }
-const initialState = { counter: 0 }
-const createStore = () => reduxCreateStore(appReducer, initialState)
+
+const appReducer = combineReducers({ todoReducer, toggleAddTodoReducer })
+
+const createStore = () => reduxCreateStore(appReducer)
 
 export default createStore
