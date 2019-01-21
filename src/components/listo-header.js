@@ -8,7 +8,7 @@ const ListoHeader = ({ addingNewTodo, onSaveTodo, onAddTodo, textRef }) => {
             <h2 className="font-mono font-hairline text-header mr-2 text-md border-b-2 border-header">
               All List
             </h2>
-            <button className="">
+            <button className="focus:outline-none">
               <svg
                 className="fill-header hover:fill-done"
                 width="16"
@@ -24,7 +24,7 @@ const ListoHeader = ({ addingNewTodo, onSaveTodo, onAddTodo, textRef }) => {
           {addingNewTodo ? (
             <button
               onClick={onSaveTodo}
-              className="hover:bg-not-done flex justify-center item-center w-12 h-12 rounded-full bg-header z-50 shadow-md  "
+              className="focus:outline-none hover:bg-not-done flex justify-center item-center w-12 h-12 rounded-full bg-header z-50 shadow-md  "
             >
               <svg
                 version="1.1"
@@ -49,7 +49,7 @@ const ListoHeader = ({ addingNewTodo, onSaveTodo, onAddTodo, textRef }) => {
           ) : (
             <button
               onClick={onAddTodo}
-              className="hover:bg-not-done flex justify-center item-center w-12 h-12 rounded-full bg-header z-50 shadow-md  "
+              className="focus:outline-none hover:bg-not-done flex justify-center item-center w-12 h-12 rounded-full bg-header z-50 shadow-md  "
             >
               <svg
                 width="40"
@@ -83,10 +83,12 @@ const ListoHeader = ({ addingNewTodo, onSaveTodo, onAddTodo, textRef }) => {
         {addingNewTodo && (
           <textarea
             ref={textRef}
+            autoFocus
             className="w-full my-6 appearance-none py-3 px-4 leading-tight focus:outline-none focus:bg-white block bg-grey-lightest text-grey-darker rounded-lg border-header border-2"
             placeholder="Write down your task here"
             // value={value}
-            rows={5}
+            rows={3}
+            onSubmit={onSaveTodo}
           />
         )}
       </div>

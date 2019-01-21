@@ -6,7 +6,7 @@ class Listo extends React.Component {
     return (
       <div className="container mx-auto py-3 ">
         <div className="flex no-wrap items-center">
-          <button className="mr-4" onClick={onToggle}>
+          <button className="mr-4 focus:outline-none" onClick={onToggle}>
             <svg
               width="30"
               height="30"

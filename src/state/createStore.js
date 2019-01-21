@@ -6,6 +6,9 @@ const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TODO': {
       const id = uuidv4()
+      if (action.text === null || action.text.trim().length < 1) {
+        return state
+      }
       return {
         ...state,
         [id]: {

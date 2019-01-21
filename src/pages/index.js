@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import { connect } from 'react-redux'
 
 import Layout from '../components/layout'
@@ -10,6 +10,9 @@ class IndexPage extends React.Component {
   setRef = input => {
     this.inputTodoRef = input
   }
+  componentDidMount() {
+    this.inputTodoRef = createRef()
+  }
 
   render() {
     console.log(this.inputTodoRef)
@@ -20,6 +23,7 @@ class IndexPage extends React.Component {
         <ListoHeader
           addingNewTodo={isAddingNewTodo}
           onAddTodo={() => {
+            console.log(`ref is -> ${this.inputTodoRef}`)
             onAddTodo(this.inputTodoRef)
           }}
           onSaveTodo={() => onSaveTodo(this.inputTodoRef.value)}
@@ -51,7 +55,8 @@ export default connect(
       dispatch({
         type: 'TOGGLE_ADD',
       })
-      // console.log(input)
+      // input.focus()
+      console.log(input)
     },
   })
 )(IndexPage)
