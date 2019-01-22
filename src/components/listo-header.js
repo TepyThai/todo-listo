@@ -4,7 +4,7 @@ import { onSaveTodo, onSetFilter } from '../state/actions'
 
 const Filter = ({ label, active, isLastLabel, onSetFilter }) => {
   const filteredClassName = active
-    ? 'border-b-2 border-header pb-2 -mb-3 text-header'
+    ? 'border-b-2 border-header pb-2 -mb-3 text-header font-bold'
     : 'text-grey'
   const mr = isLastLabel ? '' : 'mr-4'
 

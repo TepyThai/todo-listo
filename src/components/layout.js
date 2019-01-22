@@ -17,13 +17,18 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <div className="h-screen flex flex-col">
+      <div className="h-screen flex flex-col justify-between relative">
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div className="w-screen">{children}</div>
-        <footer className="pin-b pb-8 pl-8">
+        <div className="w-screen flex-1">{children}</div>
+        <footer className="sticky pin-b py-6 px-6 text-grey-dark">
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a
+            href="https://www.gatsbyjs.org"
+            className="no-underline font-sans text-header"
+          >
+            Gatsby
+          </a>
         </footer>
       </div>
     )}
