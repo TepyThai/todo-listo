@@ -2,7 +2,7 @@ import * as actionTypes from './actionTypes'
 
 export const onSaveTodo = text => ({
   type: actionTypes.ADD_TODO,
-  text,
+  text: text,
 })
 
 export const onToggleTodo = id => ({
@@ -12,5 +12,10 @@ export const onToggleTodo = id => ({
 
 export const onSetFilter = filter => ({
   type: actionTypes.SET_FILTER,
-  filter,
+  filter: filter,
+})
+
+export const onDeleteTodo = id => ({
+  type: actionTypes.DELETE_TODO,
+  id: id,
 })

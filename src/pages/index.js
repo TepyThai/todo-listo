@@ -1,9 +1,8 @@
-import React, { createRef } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import AllListo from './all-listo'
+import AllListo from '../components/all-listo'
 import ListoHeader from '../components/listo-header'
 
 class IndexPage extends React.Component {

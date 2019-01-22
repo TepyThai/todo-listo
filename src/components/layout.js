@@ -17,10 +17,10 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <div className="h-screen flex flex-col justify-between relative">
+      <div className="h-screen flex flex-col justify-between relative bg-white-grey">
         <Header siteTitle={data.site.siteMetadata.title} />
         <div className="w-screen flex-1">{children}</div>
-        <footer className="sticky pin-b py-6 px-6 text-grey-dark">
+        <footer className=" pin-b py-6 px-6 text-grey-dark">
           © {new Date().getFullYear()}, Built with
           {` `}
           <a

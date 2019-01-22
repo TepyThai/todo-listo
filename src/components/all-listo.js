@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Listo from '../components/listo'
+import Listo from './listo'
 import { getFilteredTodos } from '../state/selectors'
 
 class AllListo extends Component {
@@ -267,6 +267,7 @@ class AllListo extends Component {
             Yayy, no work to be done!
           </span>
         </div>
+        
       )
     }
     return Object.values(todos).map(todo => (

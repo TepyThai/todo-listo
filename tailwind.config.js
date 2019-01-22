@@ -48,6 +48,7 @@ let colors = {
   done: '#219653',
   btn: '#FF2A6A',
   'btn-hover': '#FF5C8D',
+  'white-grey': '#FBFBFB',
   transparent: 'transparent',
 
   black: '#22292f',
@@ -828,6 +829,8 @@ module.exports = {
     'not-done': '#C62D5B',
     done: '#219653',
     white: colors.white,
+    'grey-dark': colors["grey-dark"],
+    'red-dark': colors['red-dark']
   },
 
   /*
@@ -906,7 +909,7 @@ module.exports = {
     position: ['responsive'],
     resize: ['responsive'],
     shadows: ['responsive', 'hover', 'focus'],
-    svgFill: ['hover'],
+    svgFill: ['hover', 'focus'],
     svgStroke: [],
     tableLayout: ['responsive'],
     textAlign: ['responsive'],

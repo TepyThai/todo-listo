@@ -35,7 +35,7 @@ class ListoHeader extends React.Component {
     const { addingNewTodo, text } = this.state
 
     return (
-      <div className=" shadow z-40 sticky pin-t mb-2 py-2  w-screen bg-white">
+      <div className=" shadow z-40 sticky pin-t py-4  w-screen bg-white">
         <div className="flex flex-col container px-4 mx-auto max-w-iphonex">
           <div className="justify-between items-end flex">
             <div className="flex items-baseline border-b-2 border-grey-lighter pb-2">
