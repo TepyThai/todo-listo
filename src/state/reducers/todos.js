@@ -4,7 +4,7 @@ const initialState = {}
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TODO': {
-      const id = uuidv4()
+      const id = new Date().getTime()
       if (!action.text || action.text.trim().length < 1) {
         return state
       }

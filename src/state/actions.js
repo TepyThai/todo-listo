@@ -5,11 +5,12 @@ export const onSaveTodo = text => ({
   text,
 })
 
-export const onAddTodo = () => ({
-  type: actionTypes.TOGGLE_ADD,
-})
-
 export const onToggleTodo = id => ({
   type: actionTypes.TOGGLE_TODO,
   id: id,
+})
+
+export const onSetFilter = filter => ({
+  type: actionTypes.SET_FILTER,
+  filter,
 })

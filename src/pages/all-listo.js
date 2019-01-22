@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { onToggleTodo } from '../state/actions'
+
 import Listo from '../components/listo'
+import { getFilteredTodos } from '../state/selectors'
 
 class AllListo extends Component {
   renderAllListo = (todos, onToggleTodo) => {
@@ -30,4 +31,6 @@ class AllListo extends Component {
   }
 }
 
-export default connect(state => ({ todos: state.todos }))(AllListo)
+export default connect(state => ({
+  todos: getFilteredTodos(state.todos, state.setFilter.filter),
+}))(AllListo)

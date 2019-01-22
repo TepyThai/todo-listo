@@ -1,6 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { onSaveTodo } from '../state/actions'
+import { onSaveTodo, onSetFilter } from '../state/actions'
+
+const Filter = ({ label, active, isLastLabel, onSetFilter }) => {
+  const filteredClassName = active
+    ? 'border-b-2 border-header pb-2 -mb-3 text-header'
+    : 'text-grey'
+  const mr = isLastLabel ? '' : 'mr-4'
+
+  return (
+    <h2
+      className={`${filteredClassName} ${mr} font-sans hover:cursor-pointer text-base font-hairline text-md`}
+      onClick={onSetFilter}
+    >
+      {label}
+    </h2>
+  )
+}
+
 class ListoHeader extends React.Component {
   state = {
     addingNewTodo: false,
@@ -14,17 +31,31 @@ class ListoHeader extends React.Component {
     this.setState({ text: this.textRef.value })
   }
   render() {
-    const { onSaveTodo } = this.props
+    const { onSaveTodo, filter, onSetFilter } = this.props
     const { addingNewTodo, text } = this.state
+
     return (
       <div className=" shadow z-40 sticky pin-t mb-2 py-2  w-screen bg-white">
         <div className="flex flex-col container px-4 mx-auto max-w-iphonex">
-          <div className="justify-between items-center flex">
-            <div className="flex items-baseline ">
-              <h2 className="font-mono font-hairline text-header mr-2 text-md border-b-2 border-header">
-                {addingNewTodo ? 'New Listo' : 'All Listo'}
-              </h2>
-              <button className="focus:outline-none">
+          <div className="justify-between items-end flex">
+            <div className="flex items-baseline border-b-2 border-grey-lighter pb-2">
+              <Filter
+                label="All"
+                active={filter === 'all'}
+                onSetFilter={() => onSetFilter('all')}
+              />
+              <Filter
+                label="Active"
+                active={filter === 'active'}
+                onSetFilter={() => onSetFilter('active')}
+              />
+              <Filter
+                label="Completed"
+                isLastLabel
+                active={filter === 'done'}
+                onSetFilter={() => onSetFilter('done')}
+              />
+              {/* <button className="focus:outline-none">
                 <svg
                   className="fill-header hover:fill-done"
                   width="16"
@@ -34,7 +65,7 @@ class ListoHeader extends React.Component {
                 >
                   <path d="M8 14L0.20577 0.5L15.7942 0.500002L8 14Z" />
                 </svg>
-              </button>
+              </button> */}
             </div>
 
             {addingNewTodo ? (
@@ -117,6 +148,8 @@ class ListoHeader extends React.Component {
 }
 
 export default connect(
-  null,
-  { onSaveTodo }
+  state => ({
+    filter: state.setFilter.filter,
+  }),
+  { onSaveTodo, onSetFilter }
 )(ListoHeader)

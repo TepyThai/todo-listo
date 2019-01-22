@@ -9,6 +9,7 @@
  *
  * @import "tailwindcss/preflight";
  */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700');
 @tailwind preflight;
 
 /**

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
-import toggleAddNewTodo from './toggleAddNewTodo'
-import todos from './todos'
 
-export default combineReducers({ todos, toggleAddNewTodo })
+import todos from './todos'
+import setFilter from './setFilter'
+
+export default combineReducers({ todos, setFilter })
